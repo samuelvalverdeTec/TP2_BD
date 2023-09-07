@@ -15,3 +15,14 @@ EXECUTE Obtener_Articulos_Orden_Alfabetico '',@codigoError1 OUTPUT;
 
 DECLARE @codigoError2 INT
 EXECUTE Obtener_Clases_Articulos @codigoError2 OUTPUT;
+
+DECLARE @codigoError3 INT
+EXECUTE Insertar_Clase_Articulo 'Herramientas', @codigoError3 OUTPUT;
+
+DECLARE @IdCA2 INT;
+SELECT @IdCA2 = id FROM dbo.ClaseArticulo WHERE Nombre = 'Herramientas';
+DECLARE @codigoError4 INT
+EXECUTE Insertar_Articulo @IdCA2,'223','Martillo','5000', @codigoError4 OUTPUT;
+
+DECLARE @codigoError5 INT
+EXECUTE Obtener_Articulos_Orden_Alfabetico 'de',@codigoError5 OUTPUT;
