@@ -11,7 +11,7 @@ VALUES (@IdCA,'123','Madera','3000');
 --SELECT * FROM dbo.Articulo;
 
 DECLARE @codigoError1 INT
-EXECUTE Obtener_Articulos_Orden_Alfabetico '',NULL,@codigoError1 OUTPUT;
+EXECUTE Obtener_Articulos_Orden_Alfabetico NULL,'',NULL,@codigoError1 OUTPUT;
 
 DECLARE @codigoError2 INT
 EXECUTE Obtener_Clases_Articulos @codigoError2 OUTPUT;
@@ -25,4 +25,4 @@ DECLARE @codigoError4 INT
 EXECUTE Insertar_Articulo @IdCA2,'223','Martillo','5000', @codigoError4 OUTPUT;
 
 DECLARE @codigoError5 INT
-EXECUTE Obtener_Articulos_Orden_Alfabetico 'de',NULL,@codigoError5 OUTPUT;
+EXECUTE Obtener_Articulos_Orden_Alfabetico NULL,'de',NULL,@codigoError5 OUTPUT;
