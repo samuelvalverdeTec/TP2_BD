@@ -2,16 +2,16 @@
 
 <Datos>
     <Usuarios>
-        <usuario Nombre="PRojas" Password="Mipass123*"/>
-        <usuario Nombre="LPerez" Password="Nadie124**"/>
-        <usuario Nombre="AVindas" Password="adiVINE12&"/>
-        <usuario Nombre="JRamirez" Password="Mefui44"/>
+        <usuario Nombre="PRojas" Contrasenna="Mipass123*"/>
+        <usuario Nombre="LPerez" Contrasenna="Nadie124**"/>
+        <usuario Nombre="AVindas" Contrasenna="adiVINE12&"/>
+        <usuario Nombre="JRamirez" Contrasenna="Mefui44"/>
     </Usuarios>
 
     <ClasesdeArticulos>
-        <ClasesdeArticulos Nombre="Plomeria"/>
-        <ClasesdeArticulos Nombre="Electricos"/>
-        <ClasesdeArticulos Nombre="Ebanisteria"/>
+        <Clases Nombre="Plomeria"/>
+        <Clases Nombre="Electricos"/>
+        <Clases Nombre="Ebanisteria"/>
     </ClasesdeArticulos>
 
     <Articulos>
