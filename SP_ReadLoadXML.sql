@@ -48,7 +48,7 @@ BEGIN
            ([UserName]
            ,[Password])/*Inserta en la tabla Usuario*/
 		SELECT *
-		FROM OPENXML (@hdoc, '/Datos/Usuarios' , 1)/*Lee los contenidos del XML y para eso necesita un identificador,el 
+		FROM OPENXML (@hdoc, '/Datos/Usuarios/usuario' , 1)/*Lee los contenidos del XML y para eso necesita un identificador,el 
 		PATH del nodo y el 1 que sirve para retornar solo atributos*/
 		WITH(/*Dentro del WITH se pone el nombre y el tipo de los atributos a retornar*/
 		Nombre VARCHAR(50),
@@ -59,7 +59,7 @@ BEGIN
            ([UserName]
            ,[Password])/*Inserta en la tabla ClaseArticulo*/
 		SELECT *
-		FROM OPENXML (@hdoc, '/Datos/ClasesdeArticulos' , 1)/*Lee los contenidos del XML y para eso necesita un identificador,el 
+		FROM OPENXML (@hdoc, '/Datos/ClasesdeArticulos/Clases' , 1)/*Lee los contenidos del XML y para eso necesita un identificador,el 
 		PATH del nodo y el 1 que sirve para retornar solo atributos*/
 		WITH(/*Dentro del WITH se pone el nombre y el tipo de los atributos a retornar*/
 		Nombre VARCHAR(50)
@@ -69,7 +69,7 @@ BEGIN
            ([UserName]
            ,[Password])/*Inserta en la tabla Articulo*/
 		SELECT *
-		FROM OPENXML (@hdoc, '/Datos/Articulos' , 1)/*Lee los contenidos del XML y para eso necesita un identificador,el 
+		FROM OPENXML (@hdoc, '/Datos/Articulos/Articulo' , 1)/*Lee los contenidos del XML y para eso necesita un identificador,el 
 		PATH del nodo y el 1 que sirve para retornar solo atributos*/
 		WITH(/*Dentro del WITH se pone el nombre y el tipo de los atributos a retornar*/
 		Codigo VARCHAR(50),
