@@ -1,0 +1,25 @@
+<!-- Datos de IITP -->
+
+<Datos>
+    <Usuarios>
+        <usuario Nombre="PRojas" Contrasenna="Mipass123*"/>
+        <usuario Nombre="LPerez" Contrasenna="Nadie124**"/>
+        <usuario Nombre="AVindas" Contrasenna="adiVINE12"/>
+        <usuario Nombre="JRamirez" Contrasenna="Mefui44"/>
+    </Usuarios>
+
+    <ClasesdeArticulos>
+        <Clases Nombre="Plomeria"/>
+        <Clases Nombre="Electricos"/>
+        <Clases Nombre="Ebanisteria"/>
+    </ClasesdeArticulos>
+
+    <Articulos>
+        <Articulo Codigo="34A67E" Nombre="Tachuela" ClasedeArticulo="Ebanisteria"
+            Precio="100.00"/>
+        <Articulo Codigo="45X89E" Nombre="Bombillo" ClasedeArticulo="Electricos"
+            Precio="350.00"/>
+        <Articulo Codigo="93P97X" Nombre="Tubo PVC" ClasedeArticulo="Plomeria"
+            Precio="500.20"/>
+    </Articulos>
+</Datos>

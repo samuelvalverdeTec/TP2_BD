@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Artículos</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Artículos</h1><br>
+        <div class="table">
+          <div class="row">
+              <div class="col-4">
+                <label for="fname">Filtro Nombre:</label>
+                <input type="text" id="fname" name="fname">
+              </div>
+              <div class="col-4">
+                <button type="button" id="btnFiltrarNombre" class="btn btn-primary" >Filtrar Nombre</button>
+              </div>
+              <div class="col-4"></div>
+          </div><br>
+          <div class="row">
+            <div class="col-4">
+              <label for="fname">Filtro Cantidad:</label>
+              <input type="number" id="fcantidad" name="fcantidad">
+            </div>
+            <div class="col-4">
+              <button type="button" id="btnFiltrarCantidad" class="btn btn-primary" >Filtrar Cantidad</button>
+            </div>
+            <div class="col-4"></div>
+          </div><br>
+          <div class="row">
+            <div class="col-4">
+              <label for="fname">Filtro Clase Artículo:</label>
+              <select id="fClaseArtic" name="fClaseArtic">
+              </select>
+            </div>
+            <div class="col-4">
+              <button type="button" id="btnFiltrarClaseArtic" class="btn btn-primary" >Filtrar Clase Artículo</button>
+            </div>
+            <div class="col-4"></div>
+          </div><br>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Insertar_PopUp">Insertar</button>
+            </div>
+            <div class="col-3">
+              <button id="openModif" type="button" class="btn btn-primary">Modificar</button>
+            </div>
+            <div class="col-3">
+              <button id="openBorrar" type="button" class="btn btn-primary">Borrar</button>
+            </div>
+            <div class="col-2"></div>
+        </div>
+      </div>
+        <ul id="listArticulo" class="list-group"></ul>
+    </div>
+    
+    <div id="Insertar_PopUp" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Insertar Artículo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group">
+                      <select id="ClasesArticulosInsertar" name="ClasesArticulosInsertar">
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="txtCodigoArticulo">Código:</label>
+                      <input type="text" class="form-control" id="txtCodigoArticulo" placeholder="Ingrese código del Artículo">
+                    </div>
+                    <div class="form-group">
+                      <label for="txtNombreArticulo">Nombre:</label>
+                      <input type="text" class="form-control" id="txtNombreArticulo" placeholder="Ingrese nombre del Artículo">
+                    </div>
+                    <div class="form-group">
+                      <label for="txtPrecioArticulo">Precio:</label>
+                      <input type="number" class="form-control" id="txtPrecioArticulo" placeholder="Ingrese precio del Artículo">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button id='btnInsertar' type="button" class="btn btn-primary">Insertar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div id="Val_Modif_PopUp" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Validar Artículo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group">
+                      <label for="txtCodigoModif">Código:</label>
+                      <input type="text" class="form-control" id="txtCodigoModif" placeholder="Ingrese código del Artículo">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button id='btnValModif' type="button" class="btn btn-primary">Validar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div id="Modificar_PopUp" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modificar Artículo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group">
+                      <label for="txtCodigoModif">Código:</label>
+                      <input type="text" class="form-control" id="txtCodigoModif" placeholder="Ingrese código del Artículo">
+                    </div>
+                    <div class="form-group">
+                      <button id='btnValModif' type="button" class="btn btn-primary">Validar</button>
+                    </div>
+                    <div id="datosModif">
+                      <div class="form-group">
+                        <select id="ClasesArticulosModificar" name="ClasesArticulosModificar">
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="txtCodigoArticuloModif">Código:</label>
+                        <input type="text" class="form-control" id="txtCodigoArticuloModif" placeholder="Ingrese código del Artículo">
+                      </div>
+                      <div class="form-group">
+                        <label for="txtNombreArticuloModif">Nombre:</label>
+                        <input type="text" class="form-control" id="txtNombreArticuloModif" placeholder="Ingrese nombre del Artículo">
+                      </div>
+                      <div class="form-group">
+                        <label for="txtPrecioArticuloModif">Precio:</label>
+                        <input type="number" class="form-control" id="txtPrecioArticuloModif" placeholder="Ingrese precio del Artículo">
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button id='btnModificar' type="button" class="btn btn-primary">Modificar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="Borrar_PopUp" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Borrar Artículo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group">
+                      <label for="txtCodigoBorrar">Código:</label>
+                      <input type="text" class="form-control" id="txtCodigoBorrar" placeholder="Ingrese código del Artículo">
+                    </div>
+                    <div class="form-group">
+                      <button id='btnValBorrar' type="button" class="btn btn-primary">Validar</button>
+                    </div>
+                    <div id="datosBorrar">
+                      <div class="form-group">
+                        <h5 class="modal-title">Confirme que desea borrar este artículo</h5>
+                      </div>
+                      <div class="form-group">
+                        <label for="ClasesArticulosBorrar">Clase de Artículo:</label>
+                        <label type="text" class="form-control" id="ClasesArticulosBorrar">
+                      </div>
+                      <div class="form-group">
+                        <label for="CodigoArticuloBorrar">Código:</label>
+                        <label type="text" class="form-control" id="CodigoArticuloBorrar">
+                      </div>
+                      <div class="form-group">
+                        <label for="NombreArticuloBorrar">Nombre:</label>
+                        <label type="text" class="form-control" id="NombreArticuloBorrar">
+                      </div>
+                      <div class="form-group">
+                        <label for="PrecioArticuloBorrar">Precio:</label>
+                        <label type="number" class="form-control" id="PrecioArticuloBorrar">
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button id='btnBorrar' type="button" class="btn btn-primary">Borrar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Add jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
